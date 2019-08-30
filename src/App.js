@@ -1,24 +1,95 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from "@fullcalendar/interaction";
 
-function App() {
+import './main.css';
+import FormEvent from './FormEvent';
+
+const App = () => {
+  const [events, setEvent] = useState([
+    {
+      id: 1,
+      title: 'my event',
+      start: '2019-08-29'
+    },
+    {
+      id: 2,
+      title: 'my event',
+      start: '2019-08-30'
+    }
+  ]);
+
+  const [formStatus, setFormStatus] = useState({form: '', event: {}});
+
+  const handleDateClick = (arg) => {
+
+    setFormStatus({form: 'add', event: {}});
+  }
+
+  const addEvent = (newEvent, action) => {
+    const newEvents = events.filter(curEvent => curEvent.id !== newEvent.id);
+
+    switch (action) {
+      case 'upd':
+        setEvent([...newEvents, newEvent]);
+        break;
+      case 'add':
+        setEvent([
+          ...events,
+          {
+            ...newEvent,
+            id: events.length + 1 
+          },
+        ]);
+        break;
+      case 'del':
+        setEvent([...newEvents]);
+        break;
+      default:
+        break;
+    }
+  }
+
+  const updEvent = (eventId) => {
+    const newEvent = events.find(curEvent => curEvent.id === +eventId);
+
+    setFormStatus({form: 'upd', event: newEvent});
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        Calendar view
+      </div>
+      <FullCalendar
+        defaultView='dayGridMonth'
+        plugins={[ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ]}
+        header={{
+          left: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
+          center: 'today,prev,next',
+          right: 'title'
+        }}
+        buttonText={{
+          prev: "Back",
+          next: "Next",
+          today: "Today",
+          dayGridMonth: "Month",
+          timeGridWeek: "Week",
+          timeGridDay: "Day",
+          listWeek: "Agenda"
+        }}
+        events={events}
+        eventClick={({event}) => updEvent(event.id)}
+        dateClick={handleDateClick}
+      />
+
+      {
+        formStatus.form !== '' &&
+        <FormEvent onSave={addEvent} onClouse={setFormStatus} form={formStatus} />
+      }
     </div>
   );
 }

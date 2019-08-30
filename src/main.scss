@@ -1,0 +1,39 @@
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+@import '~@fullcalendar/timegrid/main.css';
+
+@import './variables';
+@import './formevent.scss';
+
+.fc-unthemed td {
+  border-color: $light-color;
+}
+
+.fc-head-container {
+	background-color: $light-color;
+	color: $medium-font-color;
+}
+
+.fc-button-primary {
+	height: 32px;
+	color: $dark-font-color;
+	background-color: $main-color;
+	border-color: $head-button-color;
+}
+
+.fc-button-primary:not(:disabled).fc-button-active, 
+.fc-button-primary:hover,
+.fc-button-primary:disabled {
+	color: $blue-font-color;
+	background-color: $main-color;
+	border-color: $head-button-color;
+}
+
+.fc-toolbar {
+	flex-wrap: wrap;
+}
+
+.fc-left {
+	width: 100%;
+	text-align: right;
+}
