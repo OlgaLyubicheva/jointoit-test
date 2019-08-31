@@ -1,6 +1,11 @@
 @import '~@fullcalendar/core/main.css';
 @import '~@fullcalendar/daygrid/main.css';
 @import '~@fullcalendar/timegrid/main.css';
+.form-box {
+  position: absolute;
+  z-index: 3;
+}
+
 .form {
   position: relative;
   width: 201px;

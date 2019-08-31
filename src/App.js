@@ -22,11 +22,10 @@ const App = () => {
     }
   ]);
 
-  const [formStatus, setFormStatus] = useState({form: '', event: {}});
+  const [formStatus, setFormStatus] = useState({form: '', event: {}, position: {top: '', left: ''}});
 
   const handleDateClick = (arg) => {
-
-    setFormStatus({form: 'add', event: {}});
+    setFormStatus({form: 'add', event: {}, position: {top: arg.jsEvent.pageY, left: arg.jsEvent.pageX - 205}});
   }
 
   const addEvent = (newEvent, action) => {

@@ -8,6 +8,8 @@ const FormEvent = ({ onClouse, onSave, form }) => {
 		note: form.form === 'upd' ? form.event.note : '',
 	});
 
+	console.log(form.position);
+
 	const handleChange = (e) => {
 		const {name, value} = e.target;
 
@@ -34,7 +36,7 @@ const FormEvent = ({ onClouse, onSave, form }) => {
 	}
 
   return (
-		<div className="form-box">
+		<div className="form-box" style={form.position}>
 			<form className="form" action="" onSubmit={handleSubmit}>
 				<button
 					className="close form__button"
