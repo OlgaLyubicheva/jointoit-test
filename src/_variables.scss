@@ -1,11 +1,31 @@
-$main-color: #fff;
-$dark-color: #43425D;
-$light-color: #EAF0F4;
-$light-font-color: #D6D6D6;
-$medium-font-color: #A3A6B4;
-$dark-font-color: #4D4F5C;
-$blue-font-color:#3B86FF;
-$box-shad: 0px 3px 18px #000000;
-$m-button-fontcolor: #6A6996;
-$red-button-fontcolor: #FF5F5F;
-$head-button-color: #D7DAE2;
+// page
+$background-page: #f0f0f7;
+$main-font: 'Source Sans Pro', sans-serif;
+$main-font-color: #43425D;
+
+// calendar
+$main-color: #ffffff;
+$second-color: #f5f6fa;
+$third-color: #3b86ff;
+
+// calendar-head
+$h-main-font-color: #4d4f5c;
+$h-second-font-color: $third-color;
+$h-button-border-color: #d7dae2;
+
+// calendar-table
+$t-back-color: $main-color;
+$t-border-color: #eaf0f4;
+$t-font-color: $main-font-color;
+// calendar-table-title
+$t-title-back-color: $second-color;
+$t-title-font-color: #a3a6b4;
+// calendar-table-cells
+$t-today-cell-color: $second-color;
+
+// calendar-menu
+$m-border-color: $main-font-color;
+$m-light-font-color: #d6d6d6;
+$m-button-main-font: #6a6996;
+$m-button-second-font: #ff5f5f;
+$m-button-icon-color: #d6d6d6;

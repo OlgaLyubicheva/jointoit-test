@@ -1,39 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200i,400,700&display=swap');
+
 @import '~@fullcalendar/core/main.css';
 @import '~@fullcalendar/daygrid/main.css';
 @import '~@fullcalendar/timegrid/main.css';
+@import '../node_modules/react-datepicker/src/stylesheets/datepicker.scss';
 
 @import './variables';
-@import './formevent.scss';
+@import './components/formEvent/formevent.scss';
+@import './components/customCalendar/customCalendar.scss';
 
-.fc-unthemed td {
-  border-color: $light-color;
-}
+.calendar-page {
+	padding: 32px 95px 103px 75px;
+	background-color: $background-page;
+	font-family: $main-font;
+	color: $main-font-color;
 
-.fc-head-container {
-	background-color: $light-color;
-	color: $medium-font-color;
-}
-
-.fc-button-primary {
-	height: 32px;
-	color: $dark-font-color;
-	background-color: $main-color;
-	border-color: $head-button-color;
-}
-
-.fc-button-primary:not(:disabled).fc-button-active, 
-.fc-button-primary:hover,
-.fc-button-primary:disabled {
-	color: $blue-font-color;
-	background-color: $main-color;
-	border-color: $head-button-color;
-}
-
-.fc-toolbar {
-	flex-wrap: wrap;
-}
-
-.fc-left {
-	width: 100%;
-	text-align: right;
+	&>h1 {
+		margin: 0;
+		font-size: 28px;
+		font-weight: normal;
+	}
 }

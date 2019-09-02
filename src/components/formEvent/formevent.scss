@@ -1,0 +1,78 @@
+.form-box {
+	position: absolute;
+	z-index: 3;
+}
+
+.form {
+	position: relative;
+	width: 201px;
+	height: 275px;
+	padding: 30px 23px;
+	box-sizing: border-box;
+	background: $main-color;
+	box-shadow: 0px 3px 18px change-color(#000, $lightness: 84%);
+	border: 1px solid $m-border-color;
+	border-radius: 10px;
+	font-family: $main-font;
+
+	&__input {
+		width: 148px;
+		height: 19px;
+		margin-bottom: 30.5px;
+		border-width: 0 0 0.3px;
+		border-color: #c4c3d5;
+	}
+
+	&__input::placeholder {
+		color: $m-light-font-color;
+	}
+
+	&__button-group {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__button {
+		height: 20px;
+    padding: 2px 7px;
+		background-color: $main-color;
+		border: none;
+		font-size: 12px;
+		font-family: inherit;
+	}
+
+	&__color {
+		position: absolute;
+    bottom: 90px;
+    right: 30px;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background-color: $third-color;
+	}
+}
+
+.close {
+	position: absolute;
+	top: 6px;
+	right: 7px;
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	border-radius: 50%;
+	border-color: $m-button-icon-color;
+	border-width: 2px;
+	border-style: solid;
+	color: $m-button-icon-color;
+	line-height: 16px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.m-button {
+	color: $m-button-main-font;
+}
+
+.red-button {
+	color: $m-button-second-font;
+}
