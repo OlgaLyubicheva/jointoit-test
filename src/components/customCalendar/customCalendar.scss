@@ -1,0 +1,127 @@
+.calendar-box {
+	margin: 32px 0 0;
+	padding: 20px 20px 35px;
+	background-color: $main-color;
+	box-shadow: 0px 2px 6px #f5f5f5;
+
+	&--view {
+		position: absolute;
+		top: 119px;
+		left: 105px;
+		margin: 0;
+		font-size: 18px;
+		font-weight: normal;
+	}
+	
+	.selected-cell {
+		box-shadow: 0px 3px 6px change-color(#000, $lightness: 84%);
+		text-shadow: 0px 3px 6px #43425D;
+	}
+
+	.fc-toolbar h2 {
+		font-size: 18px;
+		font-weight: normal;
+	}
+
+	.fc-unthemed td {
+		border-color: $t-border-color;
+	}
+
+	.fc-unthemed thead {
+		border-color: $t-title-back-color;
+	}
+
+	.fc-unthemed thead th {
+		height: 45px;
+		border-color: $t-title-back-color;
+		font-size: 11px;
+		line-height: 45px;
+		font-weight: bold;
+	}
+
+	.fc-unthemed .fc-row {
+		border-color: $t-title-back-color;
+	}
+	
+	.fc-head-container {
+		background-color: $t-title-back-color;
+		color: $t-title-font-color;
+	}
+
+	.fc-timeGrid-view .fc-day-grid :first-child {
+		border-right-width: 0;
+    margin-right: 0;
+	}
+
+	.fc-button-group {
+		box-shadow: 0px 2px 3px #f2f2f2;
+		border-radius: 4px;
+	}
+	
+	.fc-button-primary {
+		height: 32px;
+		padding: 0 16px;
+		background-color: $main-color;
+		border-color: $h-button-border-color;
+		border-radius: 4px;
+		font-size: 13px;
+		line-height: 32px;
+		color: $h-main-font-color;
+	}
+	
+	.fc-button:focus,
+	.fc-button-active,
+	.fc-button-primary:focus,
+	.fc-button-primary:not(:disabled):active:focus,
+	.fc-button-primary:not(:disabled).fc-button-active:focus {
+		box-shadow: none;
+	}
+	
+	.fc-button-primary:not(:disabled).fc-button-active,
+	.fc-button-primary:not(:disabled):active,
+	.fc-button-primary:hover,
+	.fc-button-primary:disabled {
+		color: $h-second-font-color;
+		background-color: $main-color;
+		border-color: $h-button-border-color;
+		box-shadow: none;
+	}
+	
+	.fc-toolbar {
+		flex-wrap: wrap;
+	}
+	
+	.fc-left {
+		width: 100%;
+		text-align: right;
+	}
+
+	.fc-right {
+		width: 58%;
+		text-align: left;
+	}
+
+	.fc-dayGrid-view .fc-day-number {
+		padding: 17px 15px 0;
+		font-size: 15px;
+	}
+
+	hr.fc-divider {
+    padding: 0;
+		border-width: 0.5px 0;
+		border-color: $t-border-color;
+	}
+
+	.fc-unthemed td.fc-today {
+    background: $t-today-cell-color;
+	}
+
+	.fc-event {
+		font-size: 13px;
+		line-height: 20px;
+	}
+
+	.fc-event-container a {
+		bottom: auto !important;
+	}
+}
