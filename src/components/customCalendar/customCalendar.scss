@@ -6,8 +6,8 @@
 
 	&--view {
 		position: absolute;
-		top: 119px;
-		left: 105px;
+		top: 184px;
+    left: 355px;
 		margin: 0;
 		font-size: 18px;
 		font-weight: normal;
@@ -119,6 +119,12 @@
 	.fc-event {
 		font-size: 13px;
 		line-height: 20px;
+	}
+
+	.fc-event:hover,
+	.fc-event:focus {
+		background-color: transparent !important;
+		color: inherit;
 	}
 
 	.fc-event-container a {

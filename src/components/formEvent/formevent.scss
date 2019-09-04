@@ -7,7 +7,7 @@
 	position: relative;
 	width: 201px;
 	height: 275px;
-	padding: 30px 23px;
+	padding: 22px 23px 30px;
 	box-sizing: border-box;
 	background: $main-color;
 	box-shadow: 0px 3px 18px change-color(#000, $lightness: 84%);
@@ -15,12 +15,55 @@
 	border-radius: 10px;
 	font-family: $main-font;
 
-	&__input {
+	&__triangle {
+		position: absolute;
+    top: 0;
+		left: 0;
+		border-bottom-color: $m-border-color;
+	}
+
+	&__triangle::before {
+		content: '';
+		position: absolute;
+    top: -16px;
+    left: 95px;
+		border: 5.5px solid transparent;
+    border-bottom: 9px solid $m-border-color;
+	}
+
+	&__triangle::after {
+		content: '';
+		position: absolute;
+    top: -13px;
+    left: 96px;
+		border: 4.5px solid transparent;
+		border-bottom: 7px solid;
+		border-bottom-color: inherit;
+	}
+
+	&__input-block {
+		display: flex;
 		width: 148px;
-		height: 19px;
-		margin-bottom: 30.5px;
-		border-width: 0 0 0.3px;
-		border-color: #c4c3d5;
+		height: 28px;
+		margin-bottom: 20.5px; 
+		border-bottom: 0.3px solid #c4c3d5;
+		box-sizing: border-box;
+	}
+
+	&__input-block img {
+		width: 20px;
+		height: 20px;
+		z-index: 3;
+	}
+
+	&__input {
+		width: 124px;
+		height: 20px;
+		padding: 0 2px;
+		border-width: 0;
+		font-size: 9px;
+		line-height: 11px;
+		font-family: $main-font;
 	}
 
 	&__input::placeholder {
@@ -30,32 +73,42 @@
 	&__button-group {
 		display: flex;
 		justify-content: space-between;
+		margin-top: 36px;
+    width: 150px;
 	}
 
 	&__button {
 		height: 20px;
-    padding: 2px 7px;
+    padding: 2px 3px;
 		background-color: $main-color;
 		border: none;
 		font-size: 12px;
 		font-family: inherit;
 	}
 
+	&__button:focus {
+		outline: none;
+	}
+
 	&__color {
 		position: absolute;
-    bottom: 90px;
-    right: 30px;
+    bottom: 85px;
+    right: 25px;
 		width: 20px;
 		height: 20px;
 		border-radius: 50%;
 		background-color: $third-color;
 	}
+
+	&__color-popover {
+		position: absolute;
+	}
 }
 
 .close {
 	position: absolute;
-	top: 6px;
-	right: 7px;
+	top: 5px;
+	right: 6px;
 	width: 20px;
 	height: 20px;
 	padding: 0;
@@ -65,8 +118,13 @@
 	border-style: solid;
 	color: $m-button-icon-color;
 	line-height: 16px;
-	font-size: 13px;
+	font-size: 20px;
 	font-weight: bold;
+
+	line {
+		stroke: $m-button-icon-color;
+		stroke-width: 2px;
+	}
 }
 
 .m-button {

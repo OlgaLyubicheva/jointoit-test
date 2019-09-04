@@ -1,0 +1,51 @@
+.sidenav {
+  min-width: 260px;
+  background-color: $nav-background;
+  font-family: $main-font;
+  font-size: 15px;
+  color: $nav-font-color;
+
+  &__title {
+    height: 70px;
+    background-color: $nav-background-activ;
+    font-weight: bold;
+  }
+
+  &__title a {
+    display: block;
+    height: 100%;
+    padding: 25px 20px;
+    box-sizing: border-box;
+    text-decoration: none;
+    line-height: 20px;
+    color: inherit;
+    letter-spacing: 3px;
+  }
+
+  &__nav {
+
+  }
+
+  &__nav a {
+    display: block;
+    height: 59px;
+    padding: 20px 21px;
+    border-left: 5px solid $nav-background;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__nav a:active,
+  &__nav a:hover,
+  .active-link {
+    background-color: $nav-background-activ;
+    border-left: 5px solid $nav-border-activ;
+  }
+
+  &__nav a img {
+    width: 16px;
+    height: 16px;
+    margin-right: 11px;
+  }
+}

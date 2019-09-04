@@ -3,6 +3,7 @@
 @import '~@fullcalendar/core/main.css';
 @import '~@fullcalendar/daygrid/main.css';
 @import '~@fullcalendar/timegrid/main.css';
+@import '../node_modules/time-picker/src/time-picker.css';
 .react-datepicker__year-read-view--down-arrow,
 .react-datepicker__month-read-view--down-arrow,
 .react-datepicker__month-year-read-view--down-arrow, .react-datepicker-popper[data-placement^=top] .react-datepicker__triangle, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle {
@@ -716,7 +717,7 @@
   position: relative;
   width: 201px;
   height: 275px;
-  padding: 30px 23px;
+  padding: 22px 23px 30px;
   box-sizing: border-box;
   background: #ffffff;
   box-shadow: 0px 3px 18px #d6d6d6;
@@ -724,12 +725,50 @@
   border-radius: 10px;
   font-family: "Source Sans Pro", sans-serif;
 }
-.form__input {
+.form__triangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom-color: #43425D;
+}
+.form__triangle::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 95px;
+  border: 5.5px solid transparent;
+  border-bottom: 9px solid #43425D;
+}
+.form__triangle::after {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: 96px;
+  border: 4.5px solid transparent;
+  border-bottom: 7px solid;
+  border-bottom-color: inherit;
+}
+.form__input-block {
+  display: flex;
   width: 148px;
-  height: 19px;
-  margin-bottom: 30.5px;
-  border-width: 0 0 0.3px;
-  border-color: #c4c3d5;
+  height: 28px;
+  margin-bottom: 20.5px;
+  border-bottom: 0.3px solid #c4c3d5;
+  box-sizing: border-box;
+}
+.form__input-block img {
+  width: 20px;
+  height: 20px;
+  z-index: 3;
+}
+.form__input {
+  width: 124px;
+  height: 20px;
+  padding: 0 2px;
+  border-width: 0;
+  font-size: 9px;
+  line-height: 11px;
+  font-family: "Source Sans Pro", sans-serif;
 }
 .form__input::placeholder {
   color: #d6d6d6;
@@ -737,29 +776,37 @@
 .form__button-group {
   display: flex;
   justify-content: space-between;
+  margin-top: 36px;
+  width: 150px;
 }
 .form__button {
   height: 20px;
-  padding: 2px 7px;
+  padding: 2px 3px;
   background-color: #ffffff;
   border: none;
   font-size: 12px;
   font-family: inherit;
 }
+.form__button:focus {
+  outline: none;
+}
 .form__color {
   position: absolute;
-  bottom: 90px;
-  right: 30px;
+  bottom: 85px;
+  right: 25px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
   background-color: #3b86ff;
 }
+.form__color-popover {
+  position: absolute;
+}
 
 .close {
   position: absolute;
-  top: 6px;
-  right: 7px;
+  top: 5px;
+  right: 6px;
   width: 20px;
   height: 20px;
   padding: 0;
@@ -769,8 +816,12 @@
   border-style: solid;
   color: #d6d6d6;
   line-height: 16px;
-  font-size: 13px;
+  font-size: 20px;
   font-weight: bold;
+}
+.close line {
+  stroke: #d6d6d6;
+  stroke-width: 2px;
 }
 
 .m-button {
@@ -789,8 +840,8 @@
 }
 .calendar-box--view {
   position: absolute;
-  top: 119px;
-  left: 105px;
+  top: 184px;
+  left: 355px;
   margin: 0;
   font-size: 18px;
   font-weight: normal;
@@ -884,8 +935,152 @@
   font-size: 13px;
   line-height: 20px;
 }
+.calendar-box .fc-event:hover,
+.calendar-box .fc-event:focus {
+  background-color: transparent !important;
+  color: inherit;
+}
 .calendar-box .fc-event-container a {
   bottom: auto !important;
+}
+
+.sidenav {
+  min-width: 260px;
+  background-color: #43425D;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+}
+.sidenav__title {
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+.sidenav__title a {
+  display: block;
+  height: 100%;
+  padding: 25px 20px;
+  box-sizing: border-box;
+  text-decoration: none;
+  line-height: 20px;
+  color: inherit;
+  letter-spacing: 3px;
+}
+.sidenav__nav a {
+  display: block;
+  height: 59px;
+  padding: 20px 21px;
+  border-left: 5px solid #43425D;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+}
+.sidenav__nav a:active, .sidenav__nav a:hover,
+.sidenav .active-link {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #a3a0fb;
+}
+.sidenav__nav a img {
+  width: 16px;
+  height: 16px;
+  margin-right: 11px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 6px #0000000a;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 13px;
+  color: #4D4F5C;
+}
+.header__search {
+  position: relative;
+  height: 100%;
+  width: 300px;
+  padding: 9px 0;
+}
+.header__search input {
+  width: 100%;
+  height: 20px;
+  padding: 1px 5px 1px 26px;
+  border: none;
+  line-height: 17px;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+.header__search input:focus {
+  outline: none;
+}
+.header__search img {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+}
+.header__left {
+  display: inline-flex;
+}
+.header__link-group {
+  box-sizing: border-box;
+  height: 28px;
+  padding: 4px 6px;
+  margin: 5px 0;
+  border-right: 1px solid #EBEBF2;
+}
+.header__link-group .notification {
+  position: relative;
+  display: inline-flex;
+}
+.header__link-group .notification-new {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  background-color: #FFC06A;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+}
+.header__link-group a {
+  display: inline-block;
+  padding: 2px;
+  margin: 0 13px;
+}
+.header__link-group a img {
+  height: 16px;
+  width: 16px;
+}
+.header__user {
+  display: inline-flex;
+}
+.header__user--img {
+  display: inline-block;
+  height: 38px;
+  width: 38px;
+}
+.header__user--img img {
+  width: 100%;
+}
+.header__user--info {
+  height: 100%;
+  margin: 0px 5px 0 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+.header__user--info img {
+  margin-left: 15px;
+}
+
+body {
+  margin: 0;
 }
 
 .calendar-page {

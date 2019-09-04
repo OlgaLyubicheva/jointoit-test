@@ -21,6 +21,7 @@ const FormEvent = ({ onClouse, onSave, form }) => {
 			...newEvent,
 			[name]: value,
 		})
+		
 	}
 
 	const clean = () => {
@@ -72,44 +73,62 @@ const FormEvent = ({ onClouse, onSave, form }) => {
   return (
 		<div className="form-box" style={form.position}>
 			<form className="form" action="" onSubmit={handleSubmit}>
+				<div
+					className="form__triangle"
+					style={form.form === 'upd' ? {borderBottomColor: 'white'} : undefined}
+				/>
 				<button
 					className="close form__button"
 					type="button"
 					onClick={() => onClouse({form: '', event: {}})}
 				>
-					x
+					&#215; 
 				</button>
 
-				<input
-					className="form__input"
-					type="text"
-					name="title"
-					placeholder="event name"
-					value={newEvent.title}
-					onChange={handleChange}
-				/>
-				<DatePicker
-					className="form__input"
-					placeholderText="event date"
-					dateFormat="yyyy-MM-dd"
-					selected={newEvent.forPicker}
-					onChange={handleDate}
-      	/>
-				<input
-					className="form__input"
-					type="time"
-					name="time"
-					placeholder="event time"
-					value={newEvent.time}
-					onChange={handleChange}
-				/>
-				<input
-					className="form__input"
-					name="note"
-					placeholder="notes"
-					value={newEvent.note}
-					onChange={handleChange}
-				/>
+				<div className="form__input-block">
+					<input
+						className="form__input"
+						type="text"
+						name="title"
+						maxlength="30"
+						placeholder="event name"
+						value={newEvent.title}
+						onChange={handleChange}
+					/>
+				</div>
+				<div className="form__input-block">
+					<DatePicker
+						className="form__input"
+						placeholderText="event date"
+						dateFormat="yyyy-MM-dd"
+						selected={newEvent.forPicker}
+						onChange={handleDate}
+					/>
+					<img src="./img/kalendarik.png" alt="date"/>
+				</div>
+
+				<div className="form__input-block">
+					<input
+						className="form__input"
+						type="text"
+						name="time"
+						placeholder="event time"
+						value={newEvent.time}
+						onChange={handleChange}
+					/>
+					<img src="./img/clock.png" alt="time"/>
+				</div>
+				
+				<div className="form__input-block">
+					<input
+						className="form__input"
+						name="note"
+						placeholder="notes"
+						value={newEvent.note}
+						onChange={handleChange}
+					/>
+				</div>
+				
 				<div
 					className="form__color"
 					style={{ backgroundColor: newEvent.color }}
@@ -117,17 +136,20 @@ const FormEvent = ({ onClouse, onSave, form }) => {
 				/>
 					{
 						displayColorPicker && (
-						<CirclePicker
-							colors={[
-								"#f44336", "#e91e63", "#9c27b0",
-								"#673ab7", "#3f51b5", "#3b86ff",
-								"#03a9f4", "#00bcd4", "#009688",
-								"#4caf50", "#8bc34a", "#cddc39",
-								"#ffeb3b", "#ffc107", "#ff9800",
-								"#ff5722", "#795548", "#607d8b"
-							]}
-							onChange={colorCheck}
-						/>)
+						<div className="form__color-popover">
+							<CirclePicker
+								colors={[
+									"#f44336", "#e91e63", "#9c27b0",
+									"#673ab7", "#3f51b5", "#3b86ff",
+									"#03a9f4", "#00bcd4", "#009688",
+									"#4caf50", "#8bc34a", "#cddc39",
+									"#ffeb3b", "#ffc107", "#ff9800",
+									"#ff5722", "#795548", "#607d8b"
+								]}
+								onChange={colorCheck}
+							/>
+						</div>
+						)
 					}
 
 				<div className="form__button-group">
