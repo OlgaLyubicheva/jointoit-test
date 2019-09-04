@@ -759,7 +759,6 @@
 .form__input-block img {
   width: 20px;
   height: 20px;
-  z-index: 3;
 }
 .form__input {
   width: 124px;
@@ -870,6 +869,11 @@
 .calendar-box .fc-unthemed .fc-row {
   border-color: #f5f6fa;
 }
+.calendar-box .fc-highlight {
+  background: transparent;
+  opacity: 1;
+  box-shadow: 0px 3px 6px #00000029;
+}
 .calendar-box .fc-head-container {
   background-color: #f5f6fa;
   color: #a3a6b4;
@@ -938,10 +942,23 @@
 .calendar-box .fc-event:hover,
 .calendar-box .fc-event:focus {
   background-color: transparent !important;
+  box-shadow: 0px 3px 6px #00000063;
   color: inherit;
 }
 .calendar-box .fc-event-container a {
   bottom: auto !important;
+}
+.calendar-box .fc-now-indicator {
+  border-color: #3b86ff;
+}
+.calendar-box .fc-ltr .fc-time-grid .fc-now-indicator-arrow {
+  left: 66px;
+  border: none;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background-color: #3b86ff;
 }
 
 .sidenav {
