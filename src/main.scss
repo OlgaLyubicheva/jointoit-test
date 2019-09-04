@@ -4,10 +4,17 @@
 @import '~@fullcalendar/daygrid/main.css';
 @import '~@fullcalendar/timegrid/main.css';
 @import '../node_modules/react-datepicker/src/stylesheets/datepicker.scss';
+@import '../node_modules/time-picker/src/time-picker.css';
 
 @import './variables';
 @import './components/formEvent/formevent.scss';
 @import './components/customCalendar/customCalendar.scss';
+@import './components/sidenav/sidenav.scss';
+@import './components//header/header.scss';
+
+body {
+	margin: 0;
+}
 
 .calendar-page {
 	padding: 32px 95px 103px 75px;
