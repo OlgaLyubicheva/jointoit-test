@@ -9,6 +9,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import FormEvent from '../formEvent/FormEvent';
 
 const CustomCalendar = () => {
+  const columnTextMonthView = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   const [events, setEvent] = useState([
     {
       id: 1,
@@ -116,8 +117,9 @@ const CustomCalendar = () => {
               month: 'long',
               year: 'numeric'
             },
-            columnHeaderText: ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"],
-            eventLimit: 3,           
+            columnHeaderText: (date) => columnTextMonthView[date.getDay()],
+            eventLimit: 3,
+            selectable: true,        
           },
           timeGridWeek: {
             titleFormat: {
@@ -130,19 +132,28 @@ const CustomCalendar = () => {
               meridiem: 'short'
             },
             eventLimit: 2,
+            nowIndicator: true,
           },
           timeGridDay: {
             titleFormat: {
               month: 'short',
               day: 'numeric',
-              weekday: 'long'
+              weekday: 'long',
+              omitCommas: true
             },
             slotLabelFormat: {
               hour: 'numeric',
               minute: '2-digit',
               meridiem: 'short'
             },
+            columnHeaderFormat: {
+              weekday: 'short',
+              month: '2-digit',
+              day: '2-digit',
+              omitCommas: true
+            },
             eventLimit: 2,
+            nowIndicator: true,
           }
         }}
         navLinks={true}
